@@ -1,18 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.MainActivity"
+    android:background="@drawable/weather_bg">
 
-    <TextView
+    <EditText
+        android:id="@+id/etCityName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/et_border_bg"
+        android:paddingStart="@dimen/et_padding_start_end"
+        android:paddingEnd="@dimen/et_padding_start_end"
+        android:paddingTop="@dimen/et_padding_top_bottom"
+        android:paddingBottom="@dimen/et_padding_top_bottom"
+        android:layout_marginTop="@dimen/et_margin_top"
+        android:layout_marginStart="@dimen/general_margin_start_end"
+        android:layout_marginEnd="@dimen/general_margin_start_end"
+        android:hint="@string/enter_city_name"
+        android:imeOptions="actionGo"
+        android:importantForAutofill="no"
+        android:inputType="text"/>
+
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:indeterminateTint="@color/white" />
+
+    <TextView
+        android:id="@+id/tvDisclaimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loadingProgressBar"
+        android:layout_marginTop="@dimen/tv_margin_top"
+        tools:text="Getting your location"
+        android:textSize="@dimen/tv_text_size"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tvCityName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etCityName"
+        android:layout_marginStart="@dimen/general_margin_start_end"
+        android:layout_marginEnd="@dimen/general_margin_start_end"
+        android:layout_marginTop="@dimen/tv_margin_top"
+        tools:text="Cairo"
+        android:textColor="@color/city_color"
+        android:textSize="@dimen/tv_city_name"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvCityTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCityName"
+        android:layout_marginTop="@dimen/tv_margin_top"
+        android:layout_marginStart="@dimen/tv_city_temp_margin_start"
+        android:layout_marginEnd="@dimen/general_margin_start_end"
+        tools:text="25\u2103"
+        android:textSize="@dimen/tv_city_temp"
+        android:textColor="@color/temp_color"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/imTempState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCityTemp"
+        android:layout_marginTop="@dimen/tv_margin_top"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tvCityName,tvCityTemp,imTempState"
+        android:id="@+id/resultGroup"
+        android:visibility="gone"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="loadingProgressBar,tvDisclaimer"
+        android:id="@+id/loadingAndDisclaimer"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
