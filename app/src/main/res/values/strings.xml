@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">WeatherApp</string>
     <string name="enter_city_name">Enter city name</string>
+    <string name="getting_your_current_city_name">Getting your current city name</string>
+    <string name="loading_weather">Loading weather…</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="request_location_permission_disclaimer">Enable location permission from settings\n
+        so we can get the current temperature in your city\n
+        or you can type it in the search bar </string>
+    <string name="very_hot">It is very hot today, it is better stay at home</string>
+    <string name="sunny">It is sunny day, go and have some tan</string>
+    <string name="good_temp">It is great weather, go outside and walk</string>
+    <string name="very_cold">It is very cold today, stay inside and drink something warm</string>
 </resources>

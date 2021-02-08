@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -16,7 +17,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField 'String', 'BASE_URL', "\"https://api.openweathermap.org/data/2.5/weather\""
+        buildConfigField 'String', 'BASE_URL', "\"https://api.openweathermap.org/data/2.5/\""
         buildConfigField 'String', 'APP_ID', "\"e627a61cefdae85eb84834b27d409cf0\""
     }
 
@@ -53,6 +54,10 @@ dependencies {
     // Json Converter
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.0'
+
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

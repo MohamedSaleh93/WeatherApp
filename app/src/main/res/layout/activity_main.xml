@@ -39,12 +39,15 @@
 
     <TextView
         android:id="@+id/tvDisclaimer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/loadingProgressBar"
         android:layout_marginTop="@dimen/tv_margin_top"
+        android:layout_marginStart="@dimen/general_margin_start_end"
+        android:layout_marginEnd="@dimen/general_margin_start_end"
         tools:text="Getting your location"
         android:textSize="@dimen/tv_text_size"
         android:textColor="@color/white" />
@@ -79,19 +82,10 @@
         android:textColor="@color/temp_color"
         android:textStyle="bold"/>
 
-    <ImageView
-        android:id="@+id/imTempState"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvCityTemp"
-        android:layout_marginTop="@dimen/tv_margin_top"/>
-
     <androidx.constraintlayout.widget.Group
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tvCityName,tvCityTemp,imTempState"
+        app:constraint_referenced_ids="tvCityName,tvCityTemp"
         android:id="@+id/resultGroup"
         android:visibility="gone"/>
 
